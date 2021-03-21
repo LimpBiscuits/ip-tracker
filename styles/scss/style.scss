@@ -1,0 +1,225 @@
+*, ::before , ::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+%flexDoubleCentre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$veryDarkGray: hsl(0, 0%, 17%);
+$darkGray: hsl(0, 0%, 59%);
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+    color: $veryDarkGray;
+}
+
+.header h1 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #FFF;
+    text-align: center;
+}
+@media screen and (max-width: 680px) {
+    .header h1 {
+        font-size: 24px;
+    }
+}
+
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5em 0;
+    width: 100%;
+    min-height: 250px;
+    height: 35%;
+    background-image: url(../../images/pattern-bg.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.inputIP {
+    display: flex;
+    flex-direction: row;
+    min-width: 340px;
+    max-width: 450px;
+    width: 30%;
+    height: 3em;
+    border-radius: 1em;
+    overflow: hidden;
+    margin-top: 1.5rem;
+
+    input[type="text"]{
+        width: 90%;
+        height: 100%;
+        border: none;
+        padding-left: 1rem;
+
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+
+
+    button{
+        width: 10%;
+        height: 100%;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            cursor: pointer;
+        }
+        &:focus, &:active{
+            border: none;
+            outline: none;
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 680px) {
+    .inputIP {
+        min-width: 140px;
+        max-width: 250px;
+        width: 65%;
+    }
+    input[type="text"]::placeholder{
+        font-size: 10px;
+    }
+
+}
+
+#map,.map {
+    @extend %flexDoubleCentre;
+    background-color: #333;
+    width: 100%;
+    height: 65%;
+    z-index: -1;
+}
+.result-box {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    min-width: 940px;
+    width: 75%;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.2);
+    border-radius: 1rem;
+    // z-index: 0;
+}
+@media screen and (max-width: 1040px) {
+    .result-box {
+        min-width: 640px;
+        width: 55%;
+        height: 150px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .result-box {
+        flex-direction: column;
+        min-width: 120px;
+        width: 55%;
+        height: auto;
+        padding: 20px 10px;
+    }
+}
+
+
+.box {
+    height: 50%;
+    width: 25%;
+    // border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 20px;
+    &:not(:last-child) {
+        border-right: 1px solid $darkGray;
+    }
+
+    &:nth-child(1) {
+        padding-right: 15px;   
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .box {
+        width: 100%;
+        height: auto;
+        align-items: center;
+    }
+    .box:not(:last-child) {
+        border-right: none;
+        padding-bottom: 10px;
+    }
+    .tittle-result, .result {
+        text-align: center;
+        font-size: 8px;
+    }
+}
+
+.tittle-result {
+    color: $darkGray;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 1040px) {
+    .tittle-result {
+        letter-spacing: 2px;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .tittle-result {
+        margin-bottom: 0px;
+    }
+}
+
+.result-data {
+    font-size: 40px;
+    font-weight: 500;
+    word-break: break-all;
+    color: $veryDarkGray;
+} 
+
+.result {
+    color: $veryDarkGray;
+    font-size: 28px;
+    font-weight: 700;
+}
+@media screen and (max-width: 1040px) {
+    .result {
+        font-size: 18px;
+        overflow-wrap: anywhere;
+    }
+    .box:nth-child(1) {
+        // padding-right: 15px;
+    }
+}
+@media screen and (max-width: 1040px) {
+    .result {
+        font-size: 14px;
+    }
+}
+
+
